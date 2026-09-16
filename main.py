@@ -35,3 +35,12 @@ def mark_task_done(task_id: str):
     
     tasks_db[task_id]["completed"] = True
     return tasks_db[task_id]
+
+@app.delete("/tasks/{task_id}")
+def delete_task(task_id: str):
+    """Delete a specific task."""
+    if task_id not in tasks_db:
+        raise HTTPException(status_code=404, detail="Task not found")
+    
+    del tasks_db[task_id]
+    return {"message": "Task deleted successfully"}

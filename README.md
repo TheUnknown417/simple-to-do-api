@@ -57,6 +57,11 @@ Alternatively, you can test using `curl`:
    curl -X PATCH "http://127.0.0.1:8000/tasks/{id}"
    ```
 
+4. **Delete a task** (`DELETE /tasks/{id}`)
+   ```bash
+   curl -X DELETE "http://127.0.0.1:8000/tasks/{id}"
+   ```
+
 ## GitHub Integration
 
 This repository includes a GitHub Actions workflow (`.github/workflows/docker-build.yml`). Every time you push to the `main` or `master` branch, GitHub will automatically build the Docker image to ensure the codebase is always in a deployable state.
@@ -74,4 +79,3 @@ If I had more time, I would implement the following:
 1. **Persistent Storage:** Swap out the in-memory dictionary for a real database (like SQLite or PostgreSQL using SQLAlchemy) so data isn't lost when the server restarts.
 2. **Unit Tests:** Add `pytest` to write automated tests for the endpoints.
 3. **Data Validation/Edge Cases:** Add constraints (e.g., maximum length for a task title, preventing empty titles).
-4. **Delete Endpoint:** Allow removing a task entirely (`DELETE /tasks/{id}`).
